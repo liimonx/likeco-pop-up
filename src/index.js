@@ -18,6 +18,7 @@ import {
 
   class likeCO {
 
+    // --------------------------likeCO  constructor-------------------------- //
     constructor(elm, options, bol) {
       this.elmcall = elm
       this.elements = document.querySelectorAll(this.elmcall)
@@ -26,7 +27,7 @@ import {
 
       for (var prop in likeCO.defaults) {
         this.options[prop] = likeCO.defaults[prop]
-      }
+      } ''
 
       for (prop in options) {
         this.options[prop] = options[prop]
@@ -35,7 +36,7 @@ import {
       this.int()
     }
 
-    // -------------------------- likeCO  method-------------------------- //
+    // --------------------------likeCO  method-------------------------- //
     _creatElements() {
       const modalConatiner = document.createElement('div')
       modalConatiner.classList.add('likco_modal_conatiner')
@@ -57,10 +58,12 @@ import {
     }
 
     _appendElement(e) {
-      const body = document.querySelector('body')
-      body.appendChild(this.modalConatiner)
-      this._modalPosition(e)
-      this.appended = !0
+      if (this.appended == 0) {
+        const body = document.querySelector('body')
+        body.appendChild(this.modalConatiner)
+        this._modalPosition(e)
+        this.appended = !0
+      }
     }
 
     _removeElement() {
@@ -72,14 +75,14 @@ import {
     }
 
     _modalPosition(event) {
-      console.log(event);
-
       let top = event.clientY
       let left = event.clientX
       const height = (getStyle(this.modalConatiner).height).match(/\d/g).join('')
       const pt = (getStyle(this.modalConatiner).paddingTop).match(/\d/g).join('')
       const pb = (getStyle(this.modalConatiner).paddingBottom).match(/\d/g).join('')
       const totalHeight = Number(height) + Number(pt) + Number(pb)
+
+      console.log( height);
 
       if (event.clientY > totalHeight) {
         top -= totalHeight
@@ -94,7 +97,9 @@ import {
     }
 
     _scrollToRemove() {
-      window.addEventListener('scroll', () => {
+      const scrollContainer = document.querySelector(this.options.scrollContainer)
+
+      scrollContainer.addEventListener('scroll', () => {
         this._removeElement()
       })
     }
@@ -130,6 +135,7 @@ import {
 
   // -------------------------- likeCO  defaults option-------------------------- //
   likeCO.defaults = {
+    scrollContainer: 'body',
     title: `Opps!`,
     msg: `You don't have permission to access`,
     suggestlink: {
@@ -142,4 +148,4 @@ import {
 
 })(window)
 
-export default SliderZero
+export default likeCO
