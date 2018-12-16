@@ -1,0 +1,43 @@
+{
+  "name": "likeco-pop-up",
+  "version": "1.0.0",
+  "description": "likeco-pop-up is a very Simple, Modern & easy to use JavaScript slider",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=dev webpack-dev-server --progress --mode development --config webpack.config.dev.js",
+    "build": "webpack -p --progress --mode production --config webpack.config.build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liimonx/likeco-pop-up.git"
+  },
+  "keywords": [
+    "pop-up",
+    "javascript",
+    "javaScprit-pop-up",
+    "likeco-pop-up"
+  ],
+  "author": "Limon Khan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/liimonx/likeco-pop-up/issues"
+  },
+  "devDependencies": {
+    "babel-core": "6.26.3",
+    "babel-loader": "7.1.4",
+    "babel-preset-env": "1.7.0",
+    "clean-webpack-plugin": "0.1.19",
+    "cross-env": "^5.1.6",
+    "file-loader": "1.1.11",
+    "html-webpack-plugin": "3.2.0",
+    "url-loader": "1.0.1",
+    "webpack": "4.9.1",
+    "webpack-cli": "2.1.4",
+    "webpack-dev-server": "^3.1.10",
+    "webpack-merge": "4.1.2"
+  },
+  "homepage": "https://github.com/liimonx/likeco-pop-up#readme"
+}
