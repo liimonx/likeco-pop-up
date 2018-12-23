@@ -74,6 +74,7 @@ import {
       }
     }
 
+    // TO DO fix float issue
     _modalPosition(event) {
       let top = event.clientY
       let left = event.clientX
@@ -116,12 +117,31 @@ import {
       })
     }
 
+    _toogle() {
+
+      this.elements.forEach(em => em.addEventListener('click', (e) => {
+
+        if (this.options.toggle == !0) {
+
+          if (this.appended == 0) {
+            this._appendElement(e)
+          } else {
+            this._removeElement()
+          }
+
+        } else {
+          this._appendElement(e)
+        }
+        
+      }))
+    }
+
     _creat() {
       this._creatElements()
 
       this.appended = 0
-
-      this.elements.forEach(em => em.addEventListener('click', (e) => this._appendElement(e)))
+      
+      this._toogle()
 
       this._bodyCLickToRemove()
       this._scrollToRemove()
@@ -141,7 +161,8 @@ import {
     suggestlink: {
       text: 'visit this link',
       link: '#'
-    }
+    },
+    toggle: true,
   }
 
   window.likeCO = likeCO
