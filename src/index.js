@@ -78,7 +78,8 @@ import {
     _modalPosition(event) {
       let top = event.clientY
       let left = event.clientX
-      const height = (getStyle(this.modalConatiner).height).match(/\d/g).join('')
+      const unfloat = (getStyle(this.modalConatiner).height).split('.')[0]
+      const height = (unfloat).match(/\d/g).join('')
       const pt = (getStyle(this.modalConatiner).paddingTop).match(/\d/g).join('')
       const pb = (getStyle(this.modalConatiner).paddingBottom).match(/\d/g).join('')
       const totalHeight = Number(height) + Number(pt) + Number(pb)
