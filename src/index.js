@@ -74,7 +74,6 @@ import {
       }
     }
 
-    // TO DO fix float issue
     _modalPosition(event) {
       let top = event.clientY
       let left = event.clientX
@@ -83,8 +82,6 @@ import {
       const pt = (getStyle(this.modalConatiner).paddingTop).match(/\d/g).join('')
       const pb = (getStyle(this.modalConatiner).paddingBottom).match(/\d/g).join('')
       const totalHeight = Number(height) + Number(pt) + Number(pb)
-
-      console.log( height);
 
       if (event.clientY > totalHeight) {
         top -= totalHeight
